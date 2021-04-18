@@ -1,0 +1,76 @@
+.btn:focus, .btn.focus {
+  box-shadow: 0 0 0 0.2rem rgba(156, 102, 10, 0.5);
+}
+
+.card-header {
+  .btn:focus, .btn.focus {
+    box-shadow: none;
+  }
+}
+
+.btn-primary, .btn-primary:hover {
+  border-color: transparent;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem hsla(38, 88%, 33%, 0.5);
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(156, 102, 10, 0.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #9c660a;
+  border-color: #9c660a;
+}
+
+.tooltip-inner {
+  padding: 30px;
+  color: #ffe5ba;
+}
+
+.modal-header {
+  font-weight: normal;
+  .code {
+    font-weight: bold;
+    background-color: #9c660a;
+    color: white;
+    padding: 5px;
+  }
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-content {
+  border: 2px solid rgba(156, 102, 10, 0.7);
+  box-shadow: 0 12px 10px -7px rgba(0, 0, 0, 0.5);
+
+  .form-control {
+    &:focus {
+      border-color: #f9ad2b;
+      box-shadow: 0 0 0 0.2rem rgb(251, 234, 206);
+    }
+  }
+}
+
+.modal-footer {
+  .btn {
+    background-color: #f9ad2b;
+    text-transform: uppercase;
+    width: 100%;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 100px;
+    color: white;
+    transition: background-color .5s;
+    border: transparent;
+
+    &:hover {
+      background-color: #9c660a;
+    }
+  }
+}

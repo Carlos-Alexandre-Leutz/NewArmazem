@@ -1,0 +1,32 @@
+version: "3"
+# para configurar /etc/hosts
+# docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' webserver
+#
+# para se conectar ao mysql do laravel, usar o ip inspecionado de armazem_db
+# docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' database
+#
+services:
+#  database:
+#    image: mysql:5.7.22
+#    container_name: database
+#    volumes:
+#      # No windows pode ser necessário utilizar o caminho absoluto
+#      - ./mysql:/var/lib/mysql
+#    ports:
+#      - "13306:3306"
+#    environment:
+#      - MYSQL_DATABASE=default
+#      - MYSQL_ROOT_PASSWORD=secret
+  webserver:
+    container_name: webserver
+    build:
+      context: docker
+    ports:
+      - "8080:80"
+#    links:
+#      - database
+    volumes:
+      # No windows pode ser necessário utilizar o caminho absoluto
+      - ./:/var/www/html
+    environment:
+      - VIRTUAL_HOST=armazem.localhost
