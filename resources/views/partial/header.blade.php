@@ -42,17 +42,22 @@
                     <a href="{{ url('/') }}" class="" id="verEmpresa" title="Empresa">Empresa</a>
                     <a href="{{ url('/') }}" class="" title="Produtos">Produtos</a>
                     <a href="{{ url('/') }}" class="" title="Contato">Contato</a>
+                    <!-- <a onclick="window.scrollTo(0, 1800);" title="Orçamentos">
+                        <div class=" menu-orcamento"> Solicite um Orçamento</div>
+                    </a> -->
                     <a href="{{ route('cart.budgets') }}" title="Orçamentos">
                         <div class=" menu-orcamento"> Solicite um Orçamento</div>
-                    </a>
-                    {{-- <a href="{{ route('cart.budgets') }}" class="d-block d-md-inline menu-link cart" title="Orçamento">--}}
+                    </a> 
+                     {{-- <a href="{{ route('cart.budgets') }}"  class="d-block d-md-inline menu-link cart" title="Orçamento">--}}
                     {{-- <i class="fas fa-shopping-cart"></i> <span class="badge rounded-circle">1</span> <span class="sr-only">Carrinho</span>--}}
                     {{-- </a>--}}
+                 
                 </div>
             </div>
         </div>
     </div>
-    <img class="imgHome" src="{{asset('images/Banner Home (1).png')}}" alt="Armazém do Escritório">
+    
+    
 </header>
 <script>
     $(function() {
@@ -65,7 +70,7 @@
         });
     });
 
-
+   
 
     $('#icone').click(function() {
         if ($('.barra').hasClass('trasformarBarra')) {

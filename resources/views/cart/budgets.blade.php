@@ -22,10 +22,15 @@
   <link rel="canonical" href="{{ $site_url  }}" data-prerender="keep">
   <link href="{{ asset('css/site.css') }}" rel="stylesheet">
   <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
 </head>
 <body>
 
 @include('partial.header')
+@include('partial.banerOrcamento')
 <ul class="categories d-none">
   @foreach($categories as $category)
     <li data-category="{{$category->code}}">{{$category->name}}</li>

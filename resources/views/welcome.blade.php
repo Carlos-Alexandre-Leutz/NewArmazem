@@ -32,6 +32,7 @@
 <body>
 
     @include('partial.header')
+    @include('partial.banerHome')
 
     <!-- <div class="wrapper">
         <div>
@@ -65,9 +66,9 @@
         </div>
     </div> -->
 
-    <section class="products">
+    <section class="products wrapper ">
 
-        <div class="">
+        <!-- <div class="">
             @if($hasCategory)
             <p id="back-container"><a class="" id="verCategorias" href="{{ url('/') }}"><i class="fas fa-arrow-left"></i> Categorias</a></p>
             <h2 class="linha">{{ $parentCategory->name }}</h2>
@@ -76,40 +77,60 @@
             <h2 class="linha">Linha de Produtos</h2>
             <p>Confira abaixo nossa linha de produtos e solicite um orçamento sem compromisso!</p>
             @endif
+        </div> 
         </div>
-        </div>
-        <ul class="" style="display: none">
+        -->
+        <!-- <ul class="" style="display: none">
             @foreach($categories as $category)
             <li data-category="{{$category->code}}">{{$category->name}}</li>
             @endforeach
-        </ul>
-        <div class="">
-            @forelse($categories as $category)
-            <div class="">
-                <figure class="">
-                    <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}" alt="{{$category->name}}">
-                    <figcaption>
-                        <h2>{{$category->name}}</h2>
-                        <p>
-                            {{$category->description}}
-                            <br>
-                            <br>
-                            <strong>
-                                <i class="fas fa-external-link-alt"></i>
-                                @if($hasCategory)
-                                Ver produtos
-                                @else
-                                Mais nesta categoria
-                                @endif
+        </ul> -->
+        <div class="cont-nav-categorias">
 
-                            </strong>
-                        </p>
-                        @if($hasCategory)
-                        <a href="{{ url('/produtos/' . $category->code) }}" class="verProdutos">Ver produtos</a>
-                        @else
-                        <a href="{{ url('/categoria/' . $category->code) }}" class="verProdutos">Mais nesta categoria</a>
-                        @endif
-                    </figcaption>
+            <a href="/categoria/Poltronas">
+                <img src="{{asset('images/Icone Poltronas (4).png')}}" alt="Armazém do Escritório">
+                <p>Poltronas</p>
+            </a>
+            <a href="/categoria/Corporativos">
+                <img src="{{asset('images/Icone Corporativos.png')}}" alt="Armazém do Escritório">
+                <p>Corporativos</p>
+            </a>
+            <a href="/categoria/Cadeiras">
+                <img src="{{asset('images/Icone Cadeiras.png')}}" alt="Armazém do Escritório">
+                <p>Cadeiras</p>
+            </a>
+            <a href="/categoria/Ambientes">
+                <img src="{{asset('images/Icone Ambientes.png')}}" alt="Armazém do Escritório">
+                <p>Ambientes</p>
+            </a>
+            <a href="/categoria/Decor">
+                <img src="{{asset('images/Icone Decor.png')}}" alt="Armazém do Escritório">
+                <p>Decor</p>
+            </a>
+            <a href="/categoria/aco">
+                <img src="{{asset('images/Icone Linha aço.png')}}" alt="Armazém do Escritório">
+                <p>Linha Aço</p>
+            </a>
+        </div>
+
+        <div id="cont-categorias" class="cont-categorias">
+            <div class="conteiner-risco"></div>
+            @forelse($categories as $category)
+            <div class="cont-categorias-interno">
+                <figure class="categorias">
+                    @if($hasCategory)
+                    <a href="{{ url('/produtos/' . $category->code) }}" class="verProdutos">
+                        <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                    </a>
+                    @else
+                    <a href="{{ url('/categoria/' . $category->code) }}" class="verProdutos">
+                        <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                    </a>
+                    @endif
+
+                    <p>{{$category->name}}</p>
+                    <!--alt="{{$category->name}}"-->
+
                 </figure>
             </div>
 
@@ -123,23 +144,29 @@
 
 
     </section>
-    <div class="cont-img-contato">
-        <img src="{{asset('images/Imagem-Banner-Empresa-home.png')}}" alt="Armazém do Escritório">
-    </div>
-    <section class="wrapper">
-        <div class="container-contato">
-            <h1 id="targetEmpresa">O Armazém</h1>
-            <p>O Armazém do Escritório é uma empresa familiar que, com mais de 20 anos
-                no mercado, atua com vendas e manutenção de mobiliário para escritórios,
-                componentes e artigos de decoração para ambientes de trabalho, ampla
-                linha de móveis para escritórios desde a recepção até a decoração.
-            </p>
-            <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Continue lendo ...
-            </button>
+    <div class="background-sobre">
 
-        </div>
-    </section>
+
+        <section class="wrapper">
+            <div class="cont-sobre">
+                <div class="sobre-armasem">
+                    <h1 id="targetEmpresa">O ARMAZÉM</h1>
+                    <p>O Armazém do Escritório é uma empresa familiar que, com mais de 20 anos
+                        no mercado, atua com vendas e manutenção de mobiliário para escritórios,
+                        componentes e artigos de decoração para ambientes de trabalho, ampla
+                        linha de móveis para escritórios desde a recepção até a decoração.
+                    </p>
+                    <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Continue lendo ...
+                    </button>
+
+                </div>
+                <div class="cont-img-contato">
+                    <img src="{{asset('images/oie_transparent.png')}}" alt="Armazém do Escritório">
+                </div>
+            </div>
+        </section>
+    </div>
     <div class="collapse cont-collapse" id="collapseExample">
         <div class="wrapper">
             <p>
@@ -170,15 +197,17 @@
             <p>
                 O nome surgiu da idéia de que em um armazém é possível encontrar uma variedade muito grande de produtos e no Armazém do Escritório, de igual forma, é possível encontrar uma linha bem variado de móveis corporativos, desde linhas convencionais até linhas mais diferenciadas. Pode-se montar uma bela recepção com cadeiras decorativas e decorações variadas, salas de reuniões equipadas e ambiente de trabalho que sigam as normas de ergonomia sem perder a beleza.
             </p>
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Fechar <i class="fas fa-level-up-alt"></i>
+            </button>
         </div>
 
     </div>
 
-    <div class="conteiner-risco"></div>
-    <!-- LightWidget WIDGET -->
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+
+    <div class="conteiner-risco margin-risco-sub"></div>
     <iframe src="//lightwidget.com/widgets/4d0841f0c0b2599c8dd075ec223896ce.html" scrolling="no" allowtransparency="true" style="width:100%;border:0;overflow:hidden;"></iframe>
-    <div class="conteiner-risco"></div>
+    <div class="conteiner-risco margin-risco-inf"></div>
     <div class="laranja"></div>
     <section class="cont-manutecao">
         <div class="cont-manutecao-itens wrapper">
@@ -194,10 +223,15 @@
         </div>
     </section>
     <div class="laranja"></div>
+    
+    @include('partial.contato')
     @include('partial.footer')
-    @include('partial.modal-orcamento')
+    <div id="#teste">
+        @include('partial.modal-orcamento')
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('js/site.js') }}"></script>
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
     <script>
         jQuery(function() {
             $(document).on('click', '.carousel-item', function(e) {
@@ -206,6 +240,17 @@
                 }
             });
         })
+
+        let url = window.location.pathname;
+        console.log(url)
+        if (url == "/") {
+            $('#cont-categorias').addClass('d-none');
+            console.log("if")
+        } else {
+            $('#cont-categorias').removeClass('d-none');
+            console.log("else")
+
+        }
     </script>
 </body>
 
