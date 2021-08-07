@@ -81,6 +81,11 @@
             }
         }
         
+        .imgCar {
+            width: 30px;
+            object-fit: contain;
+        }
+        
         .imgHome {
             width: 100%;
             object-fit: contain;
@@ -230,9 +235,63 @@
         //     // background: $Laranja;
         // }
         .categorias {
+            border-radius: 5px;
             img {
                 width: 250px;
                 object-fit: contain;
+            }
+            .image {
+                position: relative;
+                width: 250px;
+                height: 250px;
+                background: #fff;
+            }
+            .image:after {
+                content: 'Ver Mais';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                top: 0;
+                left: 0;
+                background: #e5a74abe;
+                opacity: 0;
+                transition: all 0.5s;
+                -webkit-transition: all 0.5s;
+                text-align: center;
+                color: $branco;
+                font-size: 20px;
+                padding-top: 50%;
+            }
+            .image:hover:after {
+                opacity: 1;
+            }
+            p {
+                text-align: center;
+                color: $Cinza;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+        
+        @media only screen and (max-width: 770px) {
+            .categorias {
+                img {
+                    width: 150px;
+                }
+                .image {
+                    width: 150px;
+                    height: 150px;
+                }
+                .image:after {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 20px;
+                    padding-top: 50%;
+                }
+                p {
+                    font-size: 10px;
+                }
             }
         }
         
@@ -283,6 +342,10 @@
                     color: $Laranja;
                 }
             }
+        }
+        
+        .fundoProdutos {
+            background-color: #f5f5f5;
         }
         
         .cont-categorias {
@@ -832,13 +895,12 @@
                 }
             }
             .product-image {
+                background-color: $branco;
                 position: relative;
                 overflow: hidden;
                 margin-bottom: 30px;
-                //border: 1px solid $orange;
-                border-radius: 3px;
+                border-radius: 5px;
                 border-bottom: 0 none;
-                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
                 cursor: pointer;
                 img {
                     display: none;

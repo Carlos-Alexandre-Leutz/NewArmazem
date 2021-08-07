@@ -28,7 +28,7 @@
 
 </head>
 <body>
-
+<!-- pagina de descrição de produto saparadamente-->
 @include('partial.header')
  @include('partial.banerHome')
 <section class="products">

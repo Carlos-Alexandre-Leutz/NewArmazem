@@ -44,7 +44,7 @@
 
             <div class="form-group">
               <span class="mensagem">
-                <textarea name="mensagem" cols="40" rows="6" class="area-form" id="mensagem" aria-required="true" aria-invalid="false" placeholder="   Como podemos te ajudar hoje?"></textarea>
+                <textarea name="mensagem" cols="40" rows="6" class="area-form" id="mensagem" aria-required="true" aria-invalid="false" placeholder="   Como podemos te ajudar?"></textarea>
               </span>
             </div>
             <div class="d-flex justify-content-between ">

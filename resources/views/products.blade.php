@@ -29,9 +29,10 @@
 
 </head>
 <body>
+  <!-- Produtos dentro de uma categoria -->
 @include('partial.header')
 @include('partial.banerHome')
-<section class="products">
+<section class="products fundoProdutos">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

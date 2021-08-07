@@ -112,19 +112,25 @@
                 <p>Linha Aço</p>
             </a>
         </div>
-
+    </section>
+    <section class="fundoProdutos">
+        <div class="wrapper" >
         <div id="cont-categorias" class="cont-categorias">
-            <div class="conteiner-risco"></div>
+            <div class="conteiner-risco mb-3"></div>
             @forelse($categories as $category)
-            <div class="cont-categorias-interno">
+            <div class="">
                 <figure class="categorias">
                     @if($hasCategory)
                     <a href="{{ url('/produtos/' . $category->code) }}" class="verProdutos">
-                        <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                        <div class="image">
+                            <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                        </div>
                     </a>
                     @else
                     <a href="{{ url('/categoria/' . $category->code) }}" class="verProdutos">
-                        <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                        <div class="image">
+                            <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                        </div>
                     </a>
                     @endif
 
@@ -142,11 +148,13 @@
             </div>
             @endforelse
 
-
+        </div>
+        </div>
+        
     </section>
+
+
     <div class="background-sobre">
-
-
         <section class="wrapper">
             <div class="cont-sobre">
                 <div class="sobre-armasem">
@@ -181,21 +189,34 @@
 
             <h1>A História</h1>
             <p>
-                A Constituição da empresa Comin Comércio de Móveis Ltda. (CNPJ 00.526.441/0001-21) veio a partir de uma oportunidade de negócio tendo em vista o administrador e representante com mais de 30 anos de experiência em vendas de móveis em geral. A idéia inicial era de apenas um Showroom sem comercialização direta mas a necessidade mudou os rumos e a definição da empresa.
-                Na época policiais 200 m² trabalhamos com pena com apenas uma linha de móveis e cadeiras que atendia perfeitamente para o momento.
-                Hoje a empresa conta com aproximadamente 1000 m², sendo 650 m² de showroom com uma ampla linha de móveis para escritório que engloba recepção até os detalhes mais delicados da decoração e um depósito de 350 m² com espaço suficiente para colocar pedidos e produtos a serem distribuídos para o consumidor.
+                A Constituição da empresa Comin Comércio de Móveis Ltda. (CNPJ 00.526.441/0001-21) veio a partir de uma
+                oportunidade de negócio tendo em vista o administrador e representante com mais de 30 anos de experiência em
+                vendas de móveis em geral. A idéia inicial era de apenas um Showroom sem comercialização direta mas a
+                necessidade mudou os rumos e a definição da empresa.
+                Na época policiais 200 m² trabalhamos com pena com apenas uma linha de móveis e cadeiras que atendia
+                perfeitamente para o momento.
+                Hoje a empresa conta com aproximadamente 1000 m², sendo 650 m² de showroom com uma ampla linha de móveis para
+                escritório que engloba recepção até os detalhes mais delicados da decoração e um depósito de 350 m² com espaço
+                suficiente para colocar pedidos e produtos a serem distribuídos para o consumidor.
             </p>
 
             <h1>Os Valores</h1>
             <p>
-                A missão da empresa Comin Comércio de móveis Ltda. consiste em atuar de maneira correta no mercado, de forma justa, visando a satisfação dos clientes em relação os produtos e serviços de qualidade oferecidos.
-                A visão é ter uma empresa reconhecida no ramo de escritório e decoração para escritórios em todo estado de Santa Catarina.
-                Destaca-se pelos valores éticos e morais mantendo o companheirismo, o espírito de equipe, respeito, honestidade e clareza nas atitudes.
+                A missão da empresa Comin Comércio de móveis Ltda. consiste em atuar de maneira correta no mercado, de forma
+                justa, visando a satisfação dos clientes em relação os produtos e serviços de qualidade oferecidos.
+                A visão é ter uma empresa reconhecida no ramo de escritório e decoração para escritórios em todo estado de Santa
+                Catarina.
+                Destaca-se pelos valores éticos e morais mantendo o companheirismo, o espírito de equipe, respeito, honestidade
+                e clareza nas atitudes.
             </p>
 
             <h1>A Marca</h1>
             <p>
-                O nome surgiu da idéia de que em um armazém é possível encontrar uma variedade muito grande de produtos e no Armazém do Escritório, de igual forma, é possível encontrar uma linha bem variado de móveis corporativos, desde linhas convencionais até linhas mais diferenciadas. Pode-se montar uma bela recepção com cadeiras decorativas e decorações variadas, salas de reuniões equipadas e ambiente de trabalho que sigam as normas de ergonomia sem perder a beleza.
+                O nome surgiu da idéia de que em um armazém é possível encontrar uma variedade muito grande de produtos e no
+                Armazém do Escritório, de igual forma, é possível encontrar uma linha bem variado de móveis corporativos, desde
+                linhas convencionais até linhas mais diferenciadas. Pode-se montar uma bela recepção com cadeiras decorativas e
+                decorações variadas, salas de reuniões equipadas e ambiente de trabalho que sigam as normas de ergonomia sem
+                perder a beleza.
             </p>
             <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Fechar <i class="fas fa-level-up-alt"></i>
@@ -206,7 +227,7 @@
 
 
     <div class="conteiner-risco margin-risco-sub"></div>
-    <iframe src="//lightwidget.com/widgets/4d0841f0c0b2599c8dd075ec223896ce.html" scrolling="no" allowtransparency="true" style="width:100%;border:0;overflow:hidden;"></iframe>
+    <iframe src="//lightwidget.com/widgets/4d0841f0c0b2599c8dd075ec223896ce.html" scrolling="no" allowtransparency="false" style="width:100%;border:0;overflow:hidden;"></iframe>
     <div class="conteiner-risco margin-risco-inf"></div>
     <div class="laranja"></div>
     <section class="cont-manutecao">
@@ -223,13 +244,14 @@
         </div>
     </section>
     <div class="laranja"></div>
-    
+
     @include('partial.contato')
     @include('partial.footer')
     <div id="#teste">
         @include('partial.modal-orcamento')
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
     <script type="text/javascript" src="{{ asset('js/site.js') }}"></script>
     <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
     <script>
@@ -251,7 +273,14 @@
             console.log("else")
 
         }
+        $('.lightwidget__photo').addClass('teste');
     </script>
+    <style>
+        .teste{
+            background-color: #000;
+            border: solid ;
+        }
+    </style>
 </body>
 
 </html>

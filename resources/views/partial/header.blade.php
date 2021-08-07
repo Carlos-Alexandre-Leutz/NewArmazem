@@ -16,9 +16,11 @@
                     <a href="{{ route('cart.budgets') }}" class="linkNavMob" title="Orçamentos">
                         <div class=" menu-orcamento"> Solicite um Orçamento</div>
                     </a>
-                    {{-- <a href="{{ route('cart.budgets') }}" class="d-block d-md-inline menu-link cart" title="Orçamento">--}}
-                    {{-- <i class="fas fa-shopping-cart"></i> <span class="badge rounded-circle">1</span> <span class="sr-only"><div>Carrinho</div></span>--}}
-                    {{-- </a>--}}
+                
+
+                    {{--  <a href="{{ route('cart.budgets') }}" class="d-block d-md-inline menu-link  cart" title="Orçamento">--}}
+{{--    <i class="fas fa-shopping-cart"></i> <span class="badge rounded-circle">1</span> <span class="sr-only">Carrinho</span>--}}
+{{--  </a>--}}
                 </section>
 
 
@@ -46,7 +48,10 @@
                         <div class=" menu-orcamento"> Solicite um Orçamento</div>
                     </a> -->
                     <a href="{{ route('cart.budgets') }}" title="Orçamentos">
-                        <div class=" menu-orcamento"> Solicite um Orçamento</div>
+                        <div class=" menu-orcamento">
+                            <img class="imgCar" src="{{asset('images/icone_botão_carrinho.png')}}" alt="Armazém do Escritório">
+                            Solicite 
+                        </div>
                     </a> 
                      {{-- <a href="{{ route('cart.budgets') }}"  class="d-block d-md-inline menu-link cart" title="Orçamento">--}}
                     {{-- <i class="fas fa-shopping-cart"></i> <span class="badge rounded-circle">1</span> <span class="sr-only">Carrinho</span>--}}
