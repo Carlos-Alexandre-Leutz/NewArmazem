@@ -31,7 +31,8 @@
 <!-- pagina de descrição de produto saparadamente-->
 @include('partial.header')
  @include('partial.banerHome')
-<section class="products">
+
+ <section class="products">
   <div class="container">
     <div class="row">
       <div class="col-md-12">

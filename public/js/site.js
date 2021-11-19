@@ -17612,523 +17612,523 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var SiteArmazem = {
 
-  budgets: [],
+    budgets: [],
 
-  listenContactClick: function listenContactClick() {
-    $(document).on('click', '.contact-link', function (e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: $("footer").offset().top
-      }, 1000);
-    });
-  },
+    listenContactClick: function listenContactClick() {
+        $(document).on('click', '.contact-link', function (e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $("footer").offset().top
+            }, 1000);
+        });
+    },
 
-  listenProductsClick: function listenProductsClick() {
-    $(document).on('click', '.products-link', function (e) {
-      if ($(this).hasClass('out')) return true;
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: $(".products").offset().top
-      }, 500);
-    });
-  },
+    listenProductsClick: function listenProductsClick() {
+        $(document).on('click', '.products-link', function (e) {
+            if ($(this).hasClass('out')) return true;
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $(".products").offset().top
+            }, 500);
+        });
+    },
 
-  applyFloatingLabels: function applyFloatingLabels() {
+    applyFloatingLabels: function applyFloatingLabels() {
 
-    $('footer .form-control').each(function () {
-      $(this).data('placeholder', $(this).attr('placeholder'));
-    });
+        $('footer .form-control').each(function () {
+            $(this).data('placeholder', $(this).attr('placeholder'));
+        });
 
-    $(document).on('click focusout', 'footer .form-control', function (e) {
+        $(document).on('click focusout', 'footer .form-control', function (e) {
 
-      e.stopImmediatePropagation();
+            e.stopImmediatePropagation();
 
-      var $this = $(this);
-      var placeholder = $this.data('placeholder');
-      var id = $this.prop('id');
-      var target = '#' + id;
+            var $this = $(this);
+            var placeholder = $this.data('placeholder');
+            var id = $this.prop('id');
+            var target = '#' + id;
 
-      if (e.type === 'focusout') {
-        $(target).val($(target).val().trim(" "));
-      }
+            if (e.type === 'focusout') {
+                $(target).val($(target).val().trim(" "));
+            }
 
-      if ($(this).val() !== '') return false;
+            if ($(this).val() !== '') return false;
 
-      if (e.type === 'click') {
+            if (e.type === 'click') {
 
-        $this.closest('.form-group').append('\n          <div class="floating-label" id="floating-label-' + id + '">\n          ' + placeholder + '\n          </div>\n        ');
+                $this.closest('.form-group').append('\n          <div class="floating-label" id="floating-label-' + id + '">\n          ' + placeholder + '\n          </div>\n        ');
 
-        $this.attr('placeholder', '');
-        $('#floating-label-' + id).css({ display: "block", top: "0px", left: "6px" });
-      } else {
-        $this.attr('placeholder', placeholder);
-        $('#floating-label-' + id).remove();
-      }
-    });
-  },
+                $this.attr('placeholder', '');
+                $('#floating-label-' + id).css({ display: "block", top: "0px", left: "6px" });
+            } else {
+                $this.attr('placeholder', placeholder);
+                $('#floating-label-' + id).remove();
+            }
+        });
+    },
 
-  cropAndCenterImages: function cropAndCenterImages() {
+    cropAndCenterImages: function cropAndCenterImages() {
 
-    $('.product-image').removeAttr('style');
+        $('.product-image').removeAttr('style');
 
-    $('.product-image').each(function () {
+        $('.product-image').each(function () {
 
-      var $this = $(this);
-      var parentWidth = $this.width();
+            var $this = $(this);
+            var parentWidth = $this.width();
 
-      $this.css({
-        width: parentWidth,
-        height: parentWidth
-      });
+            $this.css({
+                width: parentWidth,
+                height: parentWidth
+            });
 
-      $this.find('img').remove();
+            $this.find('img').remove();
 
-      var dataWidth = $this.data('width');
-      var dataHeight = $this.data('height');
+            var dataWidth = $this.data('width');
+            var dataHeight = $this.data('height');
 
-      var img = $("<img />").attr('src', '/images/produtos/marked/thumb-' + $this.data('src')).on('load', function () {
-        if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
-          console.log('Falha ao carregar a imagem');
+            var img = $("<img />").attr('src', '/images/produtos/marked/thumb-' + $this.data('src')).on('load', function () {
+                if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+                    console.log('Falha ao carregar a imagem');
+                } else {
+                    img.css(dataWidth > dataHeight ? 'height' : 'width', parentWidth);
+                    $this.append(img);
+
+                    var left = (img.width() - (parentWidth + 0.00000001)) / 2;
+                    var top = (img.height() - (parentWidth + 0.00000001)) / 2;
+
+                    if (left > 0) {
+                        img.css('left', '-' + left + 'px');
+                    }
+
+                    if (top > 0) {
+                        img.css('top', '-' + top + 'px');
+                    }
+
+                    img.show();
+                }
+            });
+        });
+    },
+
+    listenMouseOverProducts: function listenMouseOverProducts() {
+
+        $(document).on('mouseleave mouseout', '.product-controls', function (e) {
+            e.stopImmediatePropagation();
+            $(this).remove();
+        });
+
+        $(document).on('mouseenter', '.product-image', function (e) {
+
+            e.stopImmediatePropagation();
+
+            var $this = $(this);
+
+            if ($this.find('.product-controls').length) {
+                return false;
+            }
+
+            $('.product-controls').remove();
+
+            if (e.type === 'mouseenter') {
+                var category = $this.data('category');
+                $(this).append('\n          <div class="product-controls">\n            <a href="/produto/' + $this.data('code') + '" class="verProduto" title="Ver Produto ' + $this.data('code') + '"><span>' + $this.data('code') + '</span></a>\n            <button \n              data-code="' + $this.data('code') + '"\n              data-image="' + $this.data('src') + '"\n              data-category="' + $this.data('category') + '"\n              type="button" \n              class="btn add-to-budget">\n              <i class="fas fa-dollar-sign"></i> Or\xE7amento\n            </button>\n            <button data-src="' + $this.data('src') + '"\n              data-code="' + $this.data('code') + '"\n              data-image="' + $this.data('src') + '"\n              data-category="' + $this.data('category') + '"\n              data-toggle="lightbox"\n              data-gallery="products-' + $this.data('category') + '-gallery"\n              class="btn zoom-product">\n              <i class="fas fa-search-plus"></i> Ampliar\n            </button>\n          </div>\n        ');
+            }
+        });
+    },
+
+    selectCategoryLink: function selectCategoryLink() {
+
+        $(document).on('click', '.categories a', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            var $this = $(this);
+            var category = $this.data('category');
+
+            $('.categories a').removeClass('selected');
+            $this.addClass('selected');
+
+            $('.product-image').parent().hide();
+
+            var offset = 0;
+            var limit = 6;
+
+            $('#categoryText').html(JSON.parse(categoriesTexts)[category]);
+
+            $('.product-image[data-category="' + category + '"]').each(function (key, data) {
+                if (key < limit) {
+                    var $_this = $(this);
+                    $_this.parent().show();
+                    $_this.height($_this.width());
+                }
+            });
+
+            SiteArmazem.cropAndCenterImages();
+        });
+    },
+
+    listenLightboxClick: function listenLightboxClick() {
+
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+
+            var $this = $(this);
+
+            $('.modal-title').html('C\xF3digo: <span class="code">' + $this.data('code') + '</span>');
+            $('.modal-body').html('<img src="/images/produtos/marked/' + $this.data('src') + '" style="max-width: 640px; width:100%"/>');
+            $('.modal-footer').html('\n        <button\n          data-code="' + $this.data('code') + '"\n          data-image="' + $this.data('src') + '"\n          data-category="' + $this.data('category') + '" \n          type="button" \n          class="btn btn-primary add-to-budget">\n          <i class="fas fa-dollar-sign"></i> Or\xE7amento\n        </button>\n        <a class="btn btn-link" style="background-color: black" href="/produto/' + $this.data('code') + '"><i class="fas fa-external-link-alt"></i> Ver</a>\n      ');
+
+            $('.modal-dialog').css('width', '640px');
+            $('#modal').modal('show');
+
+            var imageList = $('[data-gallery="' + $this.data('gallery') + '"]');
+
+            event.preventDefault();
+        });
+    },
+
+    listenAddToBudgetClick: function listenAddToBudgetClick() {
+
+        $(document).on('click', '.add-to-budget', function (event) {
+            var $this = $(this);
+
+            $('#modal').modal('hide');
+
+            __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
+                title: 'Adicionado',
+                html: '\n          O produto foi adicionado com sucesso!\n          <br>Gerencie seus or\xE7amentos\n          <br>no menu superior.\n        ',
+                type: 'success',
+                confirmButtonText: 'Fechar'
+            }).then(function (result) {
+                if (result.value) {
+
+                    SiteArmazem.budgets.push({
+                        'category': $this.data('category'),
+                        'code': $this.data('code'),
+                        'image': $this.data('image')
+                    });
+
+                    window.localStorage.setItem('budget', JSON.stringify(SiteArmazem.budgets));
+                    SiteArmazem.cartTotal();
+                }
+            });
+        });
+    },
+
+    buildBudgetsList: function buildBudgetsList() {
+
+        var storage = JSON.parse(window.localStorage.getItem('budget'));
+        var budgets = [];
+
+        $(storage).each(function (key, data) {
+
+            if (undefined === budgets[data.category]) {
+                budgets[data.category] = [];
+            }
+
+            if (budgets[data.category].indexOf(data.code) === -1) {
+                budgets[data.category].push(data.code);
+            }
+        });
+
+        return budgets;
+    },
+
+    showBudgetManagerItems: function showBudgetManagerItems() {
+
+        var budgets = SiteArmazem.buildBudgetsList();
+
+        if (budgets.length == undefined) return;
+
+        var budgetsList = [];
+
+        for (var category in budgets) {
+            budgetsList.push(['<div class="budget-category">' + category + '</div>'].join(''));
+        }
+    },
+
+    cartTotal: function cartTotal() {
+
+        var budget = JSON.parse(window.localStorage.getItem('budget'));
+
+        var budgetList = [];
+        var budgetListLength = 0;
+
+        $(budget).each(function (key, data) {
+            if (undefined === budgetList[data.category]) {
+                budgetList[data.category] = [];
+            }
+            if (budgetList[data.category].indexOf(data.code) === -1) {
+                budgetList[data.category].push([data.code, data.image]);
+                budgetListLength++;
+            }
+        });
+
+        var $cartBudget = $('.cart .badge');
+        $cartBudget.html(budgetListLength);
+
+        if (budgetListLength > 0) {
+            $cartBudget.addClass('items');
         } else {
-          img.css(dataWidth > dataHeight ? 'height' : 'width', parentWidth);
-          $this.append(img);
-
-          var left = (img.width() - (parentWidth + 0.00000001)) / 2;
-          var top = (img.height() - (parentWidth + 0.00000001)) / 2;
-
-          if (left > 0) {
-            img.css('left', '-' + left + 'px');
-          }
-
-          if (top > 0) {
-            img.css('top', '-' + top + 'px');
-          }
-
-          img.show();
+            $cartBudget.removeClass('items');
+            $('#budgetTable').html('<tr><td>Você não possui orçamentos!</td></tr>');
+            $('#budget-products').addClass('d-none');
         }
-      });
-    });
-  },
+    },
 
-  listenMouseOverProducts: function listenMouseOverProducts() {
+    showBudgetCart: function showBudgetCart() {
 
-    $(document).on('mouseleave mouseout', '.product-controls', function (e) {
-      e.stopImmediatePropagation();
-      $(this).remove();
-    });
+        var budget = JSON.parse(window.localStorage.getItem('budget'));
 
-    $(document).on('mouseenter', '.product-image', function (e) {
+        var budgetList = [];
+        var budgetListLength = 0;
 
-      e.stopImmediatePropagation();
+        $(budget).each(function (key, data) {
 
-      var $this = $(this);
+            if (undefined === budgetList[data.category]) {
+                budgetList[data.category] = [];
+            }
 
-      if ($this.find('.product-controls').length) {
-        return false;
-      }
+            if (budgetList[data.category].indexOf(data.code) === -1) {
+                budgetList[data.category].push([data.code, data.image]);
+                budgetListLength++;
+            }
+        });
 
-      $('.product-controls').remove();
+        SiteArmazem.cartTotal();
 
-      if (e.type === 'mouseenter') {
-        var category = $this.data('category');
-        $(this).append('\n          <div class="product-controls">\n            <a href="/produto/' + $this.data('code') + '" class="verProduto" title="Ver Produto ' + $this.data('code') + '"><span>' + $this.data('code') + '</span></a>\n            <button \n              data-code="' + $this.data('code') + '"\n              data-image="' + $this.data('src') + '"\n              data-category="' + $this.data('category') + '"\n              type="button" \n              class="btn add-to-budget">\n              <i class="fas fa-dollar-sign"></i> Or\xE7amento\n            </button>\n            <button data-src="' + $this.data('src') + '"\n              data-code="' + $this.data('code') + '"\n              data-image="' + $this.data('src') + '"\n              data-category="' + $this.data('category') + '"\n              data-toggle="lightbox"\n              data-gallery="products-' + $this.data('category') + '-gallery"\n              class="btn zoom-product">\n              <i class="fas fa-search-plus"></i> Ampliar\n            </button>\n          </div>\n        ');
-      }
-    });
-  },
+        if (budgetListLength === 0) {
+            $('#budgetTable').html('<tr><td>Você não possui orçamentos!</td></tr>');
+        } else {
 
-  selectCategoryLink: function selectCategoryLink() {
+            var html = [];
+            var selected = [];
 
-    $(document).on('click', '.categories a', function (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
+            var _loop = function _loop(category) {
+                data = budgetList[category];
 
-      var $this = $(this);
-      var category = $this.data('category');
 
-      $('.categories a').removeClass('selected');
-      $this.addClass('selected');
+                $(data).each(function (key, product) {
 
-      $('.product-image').parent().hide();
+                    if (selected.indexOf(product[0]) === -1) {
 
-      var offset = 0;
-      var limit = 6;
+                        selected.push(product[0]);
 
-      $('#categoryText').html(JSON.parse(categoriesTexts)[category]);
+                        var categoryText = $('.categories [data-category="' + category + '"]').text();
 
-      $('.product-image[data-category="' + category + '"]').each(function (key, data) {
-        if (key < limit) {
-          var $_this = $(this);
-          $_this.parent().show();
-          $_this.height($_this.width());
+                        html.push('\n                    <tr>\n                        <td class="modal-image-container p-0">\n                            <a href="/produto/' + product[0] + '">\n                                <img src="/images/produtos/marked/' + product[1] + '" alt="" style="width: 100%">\n                                <img src="http://armazemdoescritorio.com.br/manutencao/' + product[1] + '.jpg" alt="" style="width: 100%">\n                            </a>\n\n                        </td>\n                        <td style="vertical-align: middle">\n                            <div>\n                                <div class="col-md-6 font-weight-bold mb-2" style="font-size: 14px;"><b>' + categoryText + ': ' + product[0] + '</b></div>\n                                <div class="d-flex justify-content-end">\n                                    <input type="number" min="1" id="product-' + product[0] + '-quantity" value="1" class="form-control modal-input" />\n                                    <a href="#" class="remove-product" data-code="' + product[0] + '" style="font-size: 15px;"><span class="fas fa-trash"></span></a>\n                                </div>\n                                <br />\n                                <div>\n                                    <textarea class="form-control" id="product-' + product[0] + '-message" placeholder="Adicionar observa\xE7\xE3o"></textarea>\n                                </div>\n                        </td>\n                    </tr>\n            ');
+                    }
+                });
+            };
+
+            for (var category in budgetList) {
+                var data;
+
+                _loop(category);
+            }
+
+            $('#budgetTable').html(html.join(''));
+            $('#budget-products').removeClass('d-none');
+
+            SiteArmazem.listenSendBudgetButtonClick();
         }
-      });
+    },
 
-      SiteArmazem.cropAndCenterImages();
-    });
-  },
+    listenRemoveFromBudgetClick: function listenRemoveFromBudgetClick() {
 
-  listenLightboxClick: function listenLightboxClick() {
+        $(document).on('click', '.remove-product', function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            $(this).closest('tr').remove();
 
-    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            var code = $(this).data('code');
 
-      var $this = $(this);
+            var budget = [];
+            $(SiteArmazem.budgets).each(function (key, data) {
+                if (data.code != code) {
+                    budget.push(data);
+                }
+            });
 
-      $('.modal-title').html('C\xF3digo: <span class="code">' + $this.data('code') + '</span>');
-      $('.modal-body').html('<img src="/images/produtos/marked/' + $this.data('src') + '" style="max-width: 640px; width:100%"/>');
-      $('.modal-footer').html('\n        <button\n          data-code="' + $this.data('code') + '"\n          data-image="' + $this.data('src') + '"\n          data-category="' + $this.data('category') + '" \n          type="button" \n          class="btn btn-primary add-to-budget">\n          <i class="fas fa-dollar-sign"></i> Or\xE7amento\n        </button>\n        <a class="btn btn-link" style="background-color: black" href="/produto/' + $this.data('code') + '"><i class="fas fa-external-link-alt"></i> Ver</a>\n      ');
+            SiteArmazem.budgets = budget;
+            window.localStorage.setItem('budget', JSON.stringify(SiteArmazem.budgets));
 
-      $('.modal-dialog').css('width', '640px');
-      $('#modal').modal('show');
+            SiteArmazem.cartTotal();
 
-      var imageList = $('[data-gallery="' + $this.data('gallery') + '"]');
+            if ($('.modal-body table tr').length == 0) {
+                $('#budgets-box').remove();
+                $('#modal').modal('hide');
+            }
+        });
+    },
 
-      event.preventDefault();
-    });
-  },
+    listenSendBudgetButtonClick: function listenSendBudgetButtonClick() {
 
-  listenAddToBudgetClick: function listenAddToBudgetClick() {
-
-    $(document).on('click', '.add-to-budget', function (event) {
-      var $this = $(this);
-
-      $('#modal').modal('hide');
-
-      __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
-        title: 'Adicionado',
-        html: '\n          O produto foi adicionado com sucesso!\n          <br>Gerencie seus or\xE7amentos\n          <br>no menu superior.\n        ',
-        type: 'success',
-        confirmButtonText: 'Fechar'
-      }).then(function (result) {
-        if (result.value) {
-
-          SiteArmazem.budgets.push({
-            'category': $this.data('category'),
-            'code': $this.data('code'),
-            'image': $this.data('image')
-          });
-
-          window.localStorage.setItem('budget', JSON.stringify(SiteArmazem.budgets));
-          SiteArmazem.cartTotal();
+        if ($('#budgetPhone').length) {
+            $('#budgetPhone').mask(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["a" /* phoneBehavior */], __WEBPACK_IMPORTED_MODULE_1__helpers_functions__["b" /* phoneOptions */]);
         }
-      });
-    });
-  },
 
-  buildBudgetsList: function buildBudgetsList() {
+        $(document).on('click', '#sendBudget', function (event) {
 
-    var storage = JSON.parse(window.localStorage.getItem('budget'));
-    var budgets = [];
+            event.stopImmediatePropagation();
 
-    $(storage).each(function (key, data) {
+            var $name = $('#budgetName');
+            var $email = $('#budgetEmail');
+            var $phone = $('#budgetPhone');
 
-      if (undefined === budgets[data.category]) {
-        budgets[data.category] = [];
-      }
+            var name = $name.val();
+            var email = $email.val();
+            var phone = $phone.val();
 
-      if (budgets[data.category].indexOf(data.code) === -1) {
-        budgets[data.category].push(data.code);
-      }
-    });
+            if (name.length < 3) {
+                $name.focus();
+                return false;
+            }
 
-    return budgets;
-  },
+            if (!Object(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["c" /* validateEmail */])(email)) {
+                $email.focus();
+                return false;
+            }
 
-  showBudgetManagerItems: function showBudgetManagerItems() {
+            if (phone.length < 13) {
+                $phone.focus();
+                return false;
+            }
 
-    var budgets = SiteArmazem.buildBudgetsList();
+            var products = [];
+            $(SiteArmazem.budgets).each(function (key, data) {
+                products.push([data.code, $('#product-' + data.code + '-message').val(), $('#product-' + data.code + '-quantity').val()]);
+            });
 
-    if (budgets.length == undefined) return;
+            $.ajax({
+                type: 'POST',
+                url: '/send-budget',
+                data: {
+                    name: $name.val(),
+                    email: $email.val(),
+                    phone: $phone.val(),
+                    products: products
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).done(function () {
 
-    var budgetsList = [];
+                $('#modal').modal('hide');
+                $('#budgets-box').remove();
+                window.localStorage.setItem('budget', '[]');
+                SiteArmazem.budgets = [];
 
-    for (var category in budgets) {
-      budgetsList.push(['<div class="budget-category">' + category + '</div>'].join(''));
+                __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
+                    title: "Orçamento Enviado!",
+                    html: '\n            Seu or\xE7amento foi enviado com sucesso.\n            <br>Logo entraremos em contato.\n            <br>Obrigado.\n          ',
+                    type: 'success',
+                    confirmButtonText: 'Fechar'
+                }).then(function (value) {
+                    if (value) {
+                        window.location.reload();
+                    }
+                });
+            }).fail(function () {
+                __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
+                    title: "Orçamento Não Enviado!",
+                    html: 'N\xE3o foi poss\xEDvel salvar o or\xE7amento.',
+                    type: 'error',
+                    confirmButtonText: 'Fechar'
+                });
+            });
+        });
+    },
+
+    listenSendFormButtonClick: function listenSendFormButtonClick() {
+
+        if ($('#telefone').length) {
+            $('#telefone').mask(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["a" /* phoneBehavior */], __WEBPACK_IMPORTED_MODULE_1__helpers_functions__["b" /* phoneOptions */]);
+        }
+
+        $(document).on('click', '#sendContact', function (event) {
+
+            event.stopImmediatePropagation();
+
+            var $subject = $('#assunto');
+            var $name = $('#nome');
+            var $email = $('#email');
+            var $phone = $('#telefone');
+            var $message = $('#mensagem');
+            var $relacionamento = $('#relacionamento');
+
+            var subject = $subject.val();
+            var name = $name.val();
+            var email = $email.val();
+            var phone = $phone.val();
+            var message = $message.val();
+            var relacionamento = $relacionamento.length ? 1 : 0;
+
+            //
+            // if (subject.length < 5) {
+            //   $subject.focus();
+            //   return false;
+            // }
+
+            if (name.length < 3) {
+                $name.focus();
+                return false;
+            }
+
+            if (!Object(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["c" /* validateEmail */])(email)) {
+                $email.focus();
+                return false;
+            }
+
+            if (phone.length < 13) {
+                $phone.focus();
+                return false;
+            }
+
+            if (message.length < 3) {
+                $message.focus();
+                return false;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/send-form',
+                data: {
+                    subject: subject,
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message,
+                    relacionamento: relacionamento
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }).done(function () {
+
+                __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
+                    title: "Contato Enviado!",
+                    html: '\n            Seu contato foi enviado com sucesso.\n            <br>Logo entraremos em contato.\n            <br>Obrigado.\n          ',
+                    type: 'success',
+                    confirmButtonText: 'Fechar'
+                });
+
+                $(':input').each(function () {
+                    $(this).val('');
+                    $(this).prop('placeholder', $(this).closest('.form-group').find('label').text());
+                });
+
+                $('#relacionamento').prop('checked', false);
+                $('#nome').focus();
+            }).fail(function () {
+                __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
+                    title: "Contato Não Enviado!",
+                    html: 'N\xE3o foi poss\xEDvel salvar o contato.',
+                    type: 'error',
+                    confirmButtonText: 'Fechar'
+                });
+            });
+        });
     }
-  },
-
-  cartTotal: function cartTotal() {
-
-    var budget = JSON.parse(window.localStorage.getItem('budget'));
-
-    var budgetList = [];
-    var budgetListLength = 0;
-
-    $(budget).each(function (key, data) {
-      if (undefined === budgetList[data.category]) {
-        budgetList[data.category] = [];
-      }
-      if (budgetList[data.category].indexOf(data.code) === -1) {
-        budgetList[data.category].push([data.code, data.image]);
-        budgetListLength++;
-      }
-    });
-
-    var $cartBudget = $('.cart .badge');
-    $cartBudget.html(budgetListLength);
-
-    if (budgetListLength > 0) {
-      $cartBudget.addClass('items');
-    } else {
-      $cartBudget.removeClass('items');
-      $('#budgetTable').html('<tr><td>Você não possui orçamentos!</td></tr>');
-      $('#budget-products').addClass('d-none');
-    }
-  },
-
-  showBudgetCart: function showBudgetCart() {
-
-    var budget = JSON.parse(window.localStorage.getItem('budget'));
-
-    var budgetList = [];
-    var budgetListLength = 0;
-
-    $(budget).each(function (key, data) {
-
-      if (undefined === budgetList[data.category]) {
-        budgetList[data.category] = [];
-      }
-
-      if (budgetList[data.category].indexOf(data.code) === -1) {
-        budgetList[data.category].push([data.code, data.image]);
-        budgetListLength++;
-      }
-    });
-
-    SiteArmazem.cartTotal();
-
-    if (budgetListLength === 0) {
-      $('#budgetTable').html('<tr><td>Você não possui orçamentos!</td></tr>');
-    } else {
-
-      var html = [];
-      var selected = [];
-
-      var _loop = function _loop(category) {
-        data = budgetList[category];
-
-
-        $(data).each(function (key, product) {
-
-          if (selected.indexOf(product[0]) === -1) {
-
-            selected.push(product[0]);
-
-            var categoryText = $('.categories [data-category="' + category + '"]').text();
-
-            html.push('\n              <tr>\n                <td class="modal-image-container p-0">\n                  <img src="/images/produtos/marked/' + product[1] + '" alt="" style="width: 100%">\n                </td>\n                <td style="vertical-align: middle">\n                  <div class="row">\n                    <div class="col-md-6 font-weight-bold" style="font-size: 14px;"><b>' + categoryText + ': ' + product[0] + '</b></div>\n\n                    <div class="col-md-6 text-left text-md-right">\n                      <input type="number" min="1" id="product-' + product[0] + '-quantity"  value="1" class="form-control modal-input" />\n                      <a href="#" class="remove-product" data-code="' + product[0] + '" style="font-size: 12px;"><span class="fas fa-trash"></span></a>\n                    </div>\n                  </div>\n                  <div>\n                    <textarea class="form-control" id="product-' + product[0] + '-message" placeholder="Observa\xE7\xF5es para este produto?"></textarea>\n                  </div>\n                </td>\n              </tr>\n            ');
-          }
-        });
-      };
-
-      for (var category in budgetList) {
-        var data;
-
-        _loop(category);
-      }
-
-      $('#budgetTable').html(html.join(''));
-      $('#budget-products').removeClass('d-none');
-
-      SiteArmazem.listenSendBudgetButtonClick();
-    }
-  },
-
-  listenRemoveFromBudgetClick: function listenRemoveFromBudgetClick() {
-
-    $(document).on('click', '.remove-product', function (event) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      $(this).closest('tr').remove();
-
-      var code = $(this).data('code');
-
-      var budget = [];
-      $(SiteArmazem.budgets).each(function (key, data) {
-        if (data.code != code) {
-          budget.push(data);
-        }
-      });
-
-      SiteArmazem.budgets = budget;
-      window.localStorage.setItem('budget', JSON.stringify(SiteArmazem.budgets));
-
-      SiteArmazem.cartTotal();
-
-      if ($('.modal-body table tr').length == 0) {
-        $('#budgets-box').remove();
-        $('#modal').modal('hide');
-      }
-    });
-  },
-
-  listenSendBudgetButtonClick: function listenSendBudgetButtonClick() {
-
-    if ($('#budgetPhone').length) {
-      $('#budgetPhone').mask(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["a" /* phoneBehavior */], __WEBPACK_IMPORTED_MODULE_1__helpers_functions__["b" /* phoneOptions */]);
-    }
-
-    $(document).on('click', '#sendBudget', function (event) {
-
-      event.stopImmediatePropagation();
-
-      var $name = $('#budgetName');
-      var $email = $('#budgetEmail');
-      var $phone = $('#budgetPhone');
-
-      var name = $name.val();
-      var email = $email.val();
-      var phone = $phone.val();
-
-      if (name.length < 3) {
-        $name.focus();
-        return false;
-      }
-
-      if (!Object(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["c" /* validateEmail */])(email)) {
-        $email.focus();
-        return false;
-      }
-
-      if (phone.length < 13) {
-        $phone.focus();
-        return false;
-      }
-
-      var products = [];
-      $(SiteArmazem.budgets).each(function (key, data) {
-        products.push([data.code, $('#product-' + data.code + '-message').val(), $('#product-' + data.code + '-quantity').val()]);
-      });
-
-      $.ajax({
-        type: 'POST',
-        url: '/send-budget',
-        data: {
-          name: $name.val(),
-          email: $email.val(),
-          phone: $phone.val(),
-          products: products
-        },
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      }).done(function () {
-
-        $('#modal').modal('hide');
-        $('#budgets-box').remove();
-        window.localStorage.setItem('budget', '[]');
-        SiteArmazem.budgets = [];
-
-        __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
-          title: "Orçamento Enviado!",
-          html: '\n            Seu or\xE7amento foi enviado com sucesso.\n            <br>Logo entraremos em contato.\n            <br>Obrigado.\n          ',
-          type: 'success',
-          confirmButtonText: 'Fechar'
-        }).then(function (value) {
-          if (value) {
-            window.location.reload();
-          }
-        });
-      }).fail(function () {
-        __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
-          title: "Orçamento Não Enviado!",
-          html: 'N\xE3o foi poss\xEDvel salvar o or\xE7amento.',
-          type: 'error',
-          confirmButtonText: 'Fechar'
-        });
-      });
-    });
-  },
-
-  listenSendFormButtonClick: function listenSendFormButtonClick() {
-
-    if ($('#telefone').length) {
-      $('#telefone').mask(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["a" /* phoneBehavior */], __WEBPACK_IMPORTED_MODULE_1__helpers_functions__["b" /* phoneOptions */]);
-    }
-
-    $(document).on('click', '#sendContact', function (event) {
-
-      event.stopImmediatePropagation();
-
-      var $subject = $('#assunto');
-      var $name = $('#nome');
-      var $email = $('#email');
-      var $phone = $('#telefone');
-      var $message = $('#mensagem');
-      var $relacionamento = $('#relacionamento');
-
-      var subject = $subject.val();
-      var name = $name.val();
-      var email = $email.val();
-      var phone = $phone.val();
-      var message = $message.val();
-      var relacionamento = $relacionamento.length ? 1 : 0;
-
-      //
-      // if (subject.length < 5) {
-      //   $subject.focus();
-      //   return false;
-      // }
-
-      if (name.length < 3) {
-        $name.focus();
-        return false;
-      }
-
-      if (!Object(__WEBPACK_IMPORTED_MODULE_1__helpers_functions__["c" /* validateEmail */])(email)) {
-        $email.focus();
-        return false;
-      }
-
-      if (phone.length < 13) {
-        $phone.focus();
-        return false;
-      }
-
-      if (message.length < 3) {
-        $message.focus();
-        return false;
-      }
-
-      $.ajax({
-        type: 'POST',
-        url: '/send-form',
-        data: {
-          subject: subject,
-          name: name,
-          email: email,
-          phone: phone,
-          message: message,
-          relacionamento: relacionamento
-        },
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      }).done(function () {
-
-        __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
-          title: "Contato Enviado!",
-          html: '\n            Seu contato foi enviado com sucesso.\n            <br>Logo entraremos em contato.\n            <br>Obrigado.\n          ',
-          type: 'success',
-          confirmButtonText: 'Fechar'
-        });
-
-        $(':input').each(function () {
-          $(this).val('');
-          $(this).prop('placeholder', $(this).closest('.form-group').find('label').text());
-        });
-
-        $('#relacionamento').prop('checked', false);
-        $('#nome').focus();
-      }).fail(function () {
-        __WEBPACK_IMPORTED_MODULE_0_sweetalert2_dist_sweetalert2___default()({
-          title: "Contato Não Enviado!",
-          html: 'N\xE3o foi poss\xEDvel salvar o contato.',
-          type: 'error',
-          confirmButtonText: 'Fechar'
-        });
-      });
-    });
-  }
 };
 
 var SiteApp =
@@ -18137,54 +18137,54 @@ var SiteApp =
  * What happens when page loads.
  */
 function SiteApp() {
-  _classCallCheck(this, SiteApp);
+    _classCallCheck(this, SiteApp);
 
-  jQuery(function () {
+    jQuery(function () {
 
-    $(document).on('click', '#verCategorias, .verProdutos, .verProduto, .products-link', function () {
-      window.localStorage.setItem('scrollToProducts', '1');
-    });
+        $(document).on('click', '#verCategorias, .verProdutos, .verProduto, .products-link', function () {
+            window.localStorage.setItem('scrollToProducts', '1');
+        });
 
-    $(document).on('click', '#verEmpresa', function () {
-      window.localStorage.setItem('scrollToEmpresa', '1');
-    });
+        $(document).on('click', '#verEmpresa', function () {
+            window.localStorage.setItem('scrollToEmpresa', '1');
+        });
 
-    if (window.localStorage.getItem('scrollToProducts') === '1') {
-      $('html, body').animate({
-        scrollTop: $(".products").offset().top
-      }, 500);
-      window.localStorage.setItem('scrollToProducts', '0');
-    }
-    if (window.localStorage.getItem('scrollToEmpresa') === '1') {
-      $('html, body').animate({
-        scrollTop: $("#targetEmpresa").offset().top
-      }, 500);
-      window.localStorage.setItem('scrollToEmpresa', '0');
-    }
+        if (window.localStorage.getItem('scrollToProducts') === '1') {
+            $('html, body').animate({
+                scrollTop: $(".products").offset().top
+            }, 500);
+            window.localStorage.setItem('scrollToProducts', '0');
+        }
+        if (window.localStorage.getItem('scrollToEmpresa') === '1') {
+            $('html, body').animate({
+                scrollTop: $("#targetEmpresa").offset().top
+            }, 500);
+            window.localStorage.setItem('scrollToEmpresa', '0');
+        }
 
-    $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip();
 
-    var localStorageBudgets = window.localStorage.getItem('budget') || "[]";
-    SiteArmazem.budgets = JSON.parse(localStorageBudgets);
+        var localStorageBudgets = window.localStorage.getItem('budget') || "[]";
+        SiteArmazem.budgets = JSON.parse(localStorageBudgets);
 
-    SiteArmazem.showBudgetCart();
-    SiteArmazem.listenContactClick();
-    SiteArmazem.listenProductsClick();
-    SiteArmazem.applyFloatingLabels();
-    SiteArmazem.cropAndCenterImages();
-    SiteArmazem.listenMouseOverProducts();
-    SiteArmazem.selectCategoryLink();
-    SiteArmazem.listenLightboxClick();
-    SiteArmazem.listenAddToBudgetClick();
-    SiteArmazem.listenRemoveFromBudgetClick();
-    SiteArmazem.listenSendFormButtonClick();
-
-    $(window).resize(function () {
-      setTimeout(function () {
+        SiteArmazem.showBudgetCart();
+        SiteArmazem.listenContactClick();
+        SiteArmazem.listenProductsClick();
+        SiteArmazem.applyFloatingLabels();
         SiteArmazem.cropAndCenterImages();
-      }, 200);
+        SiteArmazem.listenMouseOverProducts();
+        SiteArmazem.selectCategoryLink();
+        SiteArmazem.listenLightboxClick();
+        SiteArmazem.listenAddToBudgetClick();
+        SiteArmazem.listenRemoveFromBudgetClick();
+        SiteArmazem.listenSendFormButtonClick();
+
+        $(window).resize(function () {
+            setTimeout(function () {
+                SiteArmazem.cropAndCenterImages();
+            }, 200);
+        });
     });
-  });
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (SiteApp);

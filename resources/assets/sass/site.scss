@@ -1,4 +1,4 @@
-        $branco:#fff;
+        $branco:#ffffff;
         $Laranja: #e5a84a;
         $Cinza: #353534;
         body {
@@ -55,10 +55,33 @@
             }
             .menu-orcamento {
                 border: solid $Laranja 3px;
-                border-radius: 0px 15px 0px 15px;
+                border-radius: 0px 10px 0px 10px;
                 padding: 10px 5px 10px 5px;
-                margin-top: -10px;
-                color: $branco;
+                margin-top: -20px;
+                color: $Cinza;
+                background-color: $Laranja;
+                display: flex;
+                font-weight: 600;
+                height: 60px;
+                p {
+                    margin-top: 5px;
+                }
+                .containerImg {
+                    border-radius: 0px 10px 0px 10px;
+                    margin-top: -10px;
+                    margin-left: -5px;
+                    margin-right: 5px;
+                    background-color: $Cinza;
+                    margin: 10px solid $Cinza;
+                    width: 50px;
+                    height: 55px;
+                    img {
+                        width: 50px;
+                        height: 55px;
+                        object-fit: contain;
+                        padding: 10px;
+                    }
+                }
             }
             .cont-img-logo {
                 width: 30%;
@@ -79,11 +102,6 @@
                     color: $branco;
                 }
             }
-        }
-        
-        .imgCar {
-            width: 30px;
-            object-fit: contain;
         }
         
         .imgHome {
@@ -274,6 +292,46 @@
             }
         }
         
+        .manutencao {
+            border-radius: 5px;
+            img {
+                width: 250px;
+                object-fit: contain;
+            }
+            .image {
+                position: relative;
+                width: 250px;
+                height: 250px;
+                background: #fff;
+            }
+            .image:after {
+                content: 'Ver Mais';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                top: 0;
+                left: 0;
+                background: #e5a74abe;
+                opacity: 0;
+                transition: all 0.5s;
+                -webkit-transition: all 0.5s;
+                text-align: center;
+                color: $branco;
+                font-size: 20px;
+                padding-top: 50%;
+            }
+            .image:hover:after {
+                opacity: 1;
+            }
+            p {
+                text-align: center;
+                color: $Cinza;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+        
         @media only screen and (max-width: 770px) {
             .categorias {
                 img {
@@ -282,6 +340,24 @@
                 .image {
                     width: 150px;
                     height: 150px;
+                }
+                .image:after {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 20px;
+                    padding-top: 50%;
+                }
+                p {
+                    font-size: 10px;
+                }
+            }
+            .manutencao {
+                img {
+                    width: 100px;
+                }
+                .image {
+                    width: 100px;
+                    height: 100px;
                 }
                 .image:after {
                     width: 100%;
@@ -742,6 +818,7 @@
                     padding: 5px 20px 7px 20px;
                     border: 1px solid #d9903b;
                     color: #d9903b !important;
+                    background-color: #d9903b !important;
                     @include media-breakpoint-up(md) {
                         margin-left: 10px;
                     }

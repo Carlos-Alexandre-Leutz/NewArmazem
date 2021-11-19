@@ -52,6 +52,7 @@
           </p>
 
 
+
           <div id="budget-products" class="d-none">
             <div>
               <p class="tit">QUER MONTAR SEU <br> ESCRITORIO?<br>
@@ -62,17 +63,25 @@
             </div>
             <div>
               <form action="#">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                    <spam class="">
+                      <input type="text" class="input-form" id="budgetName" placeholder="Nome Completo">
+                    </spam>
+                    <span><input type="text" class="input-form" id="budgetEmail" placeholder="Email"></span>
+                    <span><input type="text" class="input-form" id="budgetPhone" placeholder="Telefone"></span>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
 
-                <spam class="">
-                    <input type="text" class="input-form" id="budgetName" placeholder="Nome Completo">
-                </spam>
-                <span><input type="text" class="input-form" id="budgetEmail" placeholder="Email"></span>
-                <span><input type="text" class="input-form" id="budgetPhone" placeholder="Telefone"></span>
-                
-              
+                    <span><textarea type="text" class="input-form" id="obcervacao" placeholder="Observação"   style="height: 145px;"></textarea></span>
+                  </div>
+                </div>
+
+
+
                 <div class="cont-btn-enviar">
-                  <button type="button"  id="sendBudget">
-                  <i class="fas fa-envelope"></i> Enviar!
+                  <button type="button" id="sendBudget">
+                    <i class="fas fa-envelope"></i> Enviar!
                   </button>
                 </div>
               </form>

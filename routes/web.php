@@ -3,6 +3,8 @@
 // Front
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/empresa', 'HomeController@empresa')->name('empresa');
+Route::get('/manutencao', 'HomeController@manutencao')->name('manutencao');
 Route::get('/nova-home', 'HomeController@newIndex')->name('new.index');
 Route::get('/categoria/{category}', 'HomeController@index')->name('category.index');
 Route::get('/produtos/{category}', 'HomeController@products')->name('category.products');

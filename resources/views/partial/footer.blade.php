@@ -1,5 +1,5 @@
 <footer>
-  
+
   <div class="footer">
     <div class="wrapper">
       <img src="{{asset('images/Logo Rodapé.png')}}" alt="Armazém do Escritório">
@@ -13,22 +13,28 @@
 
       </div>
       <div>
-        itajaí, SC <br>
         <a href="https://goo.gl/maps/r9Q2BZQaMVA2" target="_blank" title="Clique para ver no Google Maps">
+          <i class="fas fa-map-marker-alt"></i>
+          Itajaí, SC <br>
           R. Samuel Heusi, 73 Centro <br>
-          <i class="fab fa-whatsapp"></i>
-          <i class="fas fa-phone-alt"></i>
-          (47) 3348-0291
-
+          <!-- <i class="fab fa-whatsapp"></i> -->
+        </a>
+        <a href="tel:+4733480291">
+        <i class="fas fa-phone-alt"></i>
+        (47) 3348-0291
         </a>
       </div>
       <div>
-        Balneario Camboriú, SC <br>
         <a href="https://goo.gl/maps/r9Q2BZQaMVA2" target="_blank" title="Clique para ver no Google Maps">
-          R. Portugal 31, Bairo das Naçoões <br>
-          <i class="fab fa-whatsapp"></i>
+          <i class="fas fa-map-marker-alt"></i>
+          Balneário Camboriú, SC <br>
+          R. Portugal 31, Bairo das Nações <br>
+          <!-- <i class="fab fa-whatsapp"></i> -->
+        </a>
+        <a href="tel:+4733671487">
+
           <i class="fas fa-phone-alt"></i>
-          47 3367 1487
+          (47) 3367-1487
         </a>
 
       </div>
@@ -37,7 +43,7 @@
           <a href="mailto:contato@armazemdoescritorio.com.br" title="Clique para enviar email diretamente">contato@armazemdoescritorio.com.br</a>
         </div>
         <div class="cont-i-redes">
-          <a href="https://www.instagram.com/explore/locations/23669937/" target="_blank" class="social instagram" title="Veja nossas fotos no Instagram">
+          <a href="https://www.instagram.com/armazemdoescritorio/" target="_blank" class="social instagram" title="Veja nossas fotos no Instagram">
             <i class="fab fa-instagram"></i>
           </a>
           <a href="https://www.facebook.com/armazemdoescritorioitajai?fref=ts" target="_blank" class="social facebook" title="Visite nossa página no Facebook">

@@ -26,7 +26,8 @@ class BudgetSent extends Mailable
                 'products' => $this->data['products'],
                 'name' => $this->data['name'],
                 'phone' => $this->data['phone'],
-                'email' => $this->data['email']
+                'email' => $this->data['email'],
+                'obcervacao' => $this->data['obcervacao'],
             ]);
     }
 }

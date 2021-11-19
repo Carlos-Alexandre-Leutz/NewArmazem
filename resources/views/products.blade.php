@@ -29,6 +29,8 @@
 
 </head>
 <body>
+
+
   <!-- Produtos dentro de uma categoria -->
 @include('partial.header')
 @include('partial.banerHome')

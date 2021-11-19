@@ -66,7 +66,7 @@
         </div>
     </div> -->
 
-    <section class="products wrapper ">
+    <section id="products" class="products wrapper ">
 
         <!-- <div class="">
             @if($hasCategory)
@@ -93,7 +93,7 @@
             </a>
             <a href="/categoria/Corporativos">
                 <img src="{{asset('images/Icone Corporativos.png')}}" alt="Armazém do Escritório">
-                <p>Corporativos</p>
+                <p>Corporativo</p>
             </a>
             <a href="/categoria/Cadeiras">
                 <img src="{{asset('images/Icone Cadeiras.png')}}" alt="Armazém do Escritório">
@@ -114,43 +114,43 @@
         </div>
     </section>
     <section class="fundoProdutos">
-        <div class="wrapper" >
-        <div id="cont-categorias" class="cont-categorias">
-            <div class="conteiner-risco mb-3"></div>
-            @forelse($categories as $category)
-            <div class="">
-                <figure class="categorias">
-                    @if($hasCategory)
-                    <a href="{{ url('/produtos/' . $category->code) }}" class="verProdutos">
-                        <div class="image">
-                            <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
-                        </div>
-                    </a>
-                    @else
-                    <a href="{{ url('/categoria/' . $category->code) }}" class="verProdutos">
-                        <div class="image">
-                            <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
-                        </div>
-                    </a>
-                    @endif
+        <div class="wrapper">
+            <div id="cont-categorias" class="cont-categorias">
+                <div class="conteiner-risco mb-3"></div>
+                @forelse($categories as $category)
+                <div class="">
+                    <figure class="categorias">
+                        @if($hasCategory)
+                        <a href="{{ url('/produtos/' . $category->code) }}" class="verProdutos">
+                            <div class="image">
+                                <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                            </div>
+                        </a>
+                        @else
+                        <a href="{{ url('/categoria/' . $category->code) }}" class="verProdutos">
+                            <div class="image">
+                                <img src="{{ asset('images/produtos/marked/category-' . $category->image) }}">
+                            </div>
+                        </a>
+                        @endif
 
-                    <p>{{$category->name}}</p>
-                    <!--alt="{{$category->name}}"-->
+                        <p>{{$category->name}}</p>
+                        <!--alt="{{$category->name}}"-->
 
-                </figure>
+                    </figure>
+                </div>
+
+                .
+                @empty
+                <div class="alert alert-warning">
+                    Não há linhas associadas à esta categoria no momento.<br>
+                    Pedimos a gentileza que verifique conosco o motivo!
+                </div>
+                @endforelse
+
             </div>
-
-            .
-            @empty
-            <div class="alert alert-warning">
-                Não há linhas associadas à esta categoria no momento.<br>
-                Pedimos a gentileza que verifique conosco o motivo!
-            </div>
-            @endforelse
-
         </div>
-        </div>
-        
+
     </section>
 
 
@@ -159,15 +159,15 @@
             <div class="cont-sobre">
                 <div class="sobre-armasem">
                     <h1 id="targetEmpresa">O ARMAZÉM</h1>
-                    <p>O Armazém do Escritório é uma empresa familiar que, com mais de 20 anos
-                        no mercado, atua com vendas e manutenção de mobiliário para escritórios,
-                        componentes e artigos de decoração para ambientes de trabalho, ampla
-                        linha de móveis para escritórios desde a recepção até a decoração.
-                    </p>
-                    <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Continue lendo ...
-                    </button>
+                    <p>
+                        A empresa surgiu a partir de uma oportunidade de negócio no ano de 2001 com a ideia inicial de apenas um showroom de fábrica com aproximadamente 200m², administrado pelo representante e atual gestor, sem comercialização direta.
 
+                    </p>
+                    <a href="{{ url('/empresa') }}">
+                        <button type="button">
+                            Continue lendo ...
+                        </button>
+                    </a>
                 </div>
                 <div class="cont-img-contato">
                     <img src="{{asset('images/oie_transparent.png')}}" alt="Armazém do Escritório">
@@ -175,59 +175,14 @@
             </div>
         </section>
     </div>
-    <div class="collapse cont-collapse" id="collapseExample">
-        <div class="wrapper">
-            <p>
-                Nosso showroom com mais de 600 m², possui uma grande cartela de
-                marcas, modelos e cores entre cadeiras e conjuntos de ambientes completos
-                para apreciação e venda.
-                Contamos com um depósito de 350 m² para armazenagem de pedidos e
-                produtos para distribuição além de alguns produtos a pronta entrega,
-                facilitando ainda mais a montagem dos ambientes.
-                Somos uma empresa completa e sua necessidade está no nosso estoque!
-            </p>
 
-            <h1>A História</h1>
-            <p>
-                A Constituição da empresa Comin Comércio de Móveis Ltda. (CNPJ 00.526.441/0001-21) veio a partir de uma
-                oportunidade de negócio tendo em vista o administrador e representante com mais de 30 anos de experiência em
-                vendas de móveis em geral. A idéia inicial era de apenas um Showroom sem comercialização direta mas a
-                necessidade mudou os rumos e a definição da empresa.
-                Na época policiais 200 m² trabalhamos com pena com apenas uma linha de móveis e cadeiras que atendia
-                perfeitamente para o momento.
-                Hoje a empresa conta com aproximadamente 1000 m², sendo 650 m² de showroom com uma ampla linha de móveis para
-                escritório que engloba recepção até os detalhes mais delicados da decoração e um depósito de 350 m² com espaço
-                suficiente para colocar pedidos e produtos a serem distribuídos para o consumidor.
-            </p>
-
-            <h1>Os Valores</h1>
-            <p>
-                A missão da empresa Comin Comércio de móveis Ltda. consiste em atuar de maneira correta no mercado, de forma
-                justa, visando a satisfação dos clientes em relação os produtos e serviços de qualidade oferecidos.
-                A visão é ter uma empresa reconhecida no ramo de escritório e decoração para escritórios em todo estado de Santa
-                Catarina.
-                Destaca-se pelos valores éticos e morais mantendo o companheirismo, o espírito de equipe, respeito, honestidade
-                e clareza nas atitudes.
-            </p>
-
-            <h1>A Marca</h1>
-            <p>
-                O nome surgiu da idéia de que em um armazém é possível encontrar uma variedade muito grande de produtos e no
-                Armazém do Escritório, de igual forma, é possível encontrar uma linha bem variado de móveis corporativos, desde
-                linhas convencionais até linhas mais diferenciadas. Pode-se montar uma bela recepção com cadeiras decorativas e
-                decorações variadas, salas de reuniões equipadas e ambiente de trabalho que sigam as normas de ergonomia sem
-                perder a beleza.
-            </p>
-            <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Fechar <i class="fas fa-level-up-alt"></i>
-            </button>
-        </div>
-
-    </div>
 
 
     <div class="conteiner-risco margin-risco-sub"></div>
-    <iframe src="//lightwidget.com/widgets/4d0841f0c0b2599c8dd075ec223896ce.html" scrolling="no" allowtransparency="false" style="width:100%;border:0;overflow:hidden;"></iframe>
+
+    <!-- <iframe class="instagranIframe" src="//lightwidget.com/widgets/4d0841f0c0b2599c8dd075ec223896ce.html" scrolling="no" allowtransparency="false" style="width:100%;border:0;overflow:hidden;"></iframe> -->
+
+    <iframe src="//lightwidget.com/widgets/7533daa84a6b5739bd1ae982d962a18c.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
     <div class="conteiner-risco margin-risco-inf"></div>
     <div class="laranja"></div>
     <section class="cont-manutecao">
@@ -236,7 +191,9 @@
                 PROCURANDO MANUTENÇÃO?
             </div>
             <div>
-                <button>CONFIRA</button>
+                <a href="/manutencao">
+                    <button>CONFIRA</button>
+                </a>
                 <div>
                     COMPLETA LINHA DE <br> PRODUTOS PRODUTOS PARA MANUTENÇÃO
                 </div>
@@ -262,25 +219,35 @@
                 }
             });
         })
-
         let url = window.location.pathname;
-        console.log(url)
         if (url == "/") {
             $('#cont-categorias').addClass('d-none');
-            console.log("if")
         } else {
             $('#cont-categorias').removeClass('d-none');
-            console.log("else")
+        }
 
-        }
-        $('.lightwidget__photo').addClass('teste');
+
+
+
+
+        const scrol = () => {
+            console.log("scrol")
+            let urlID = document.location.href;
+            let split = urlID.split("#")[1]
+            if (split) {
+                console.log("split")
+                if (split == "contato") {
+                    window.scrollTo(0, 1800)
+                    $(".header-transparent").addClass("header-black");
+
+                } else if (split == "produtos") {
+                    window.scrollTo(0, 500)
+                    $(".header-transparent").addClass("header-black");
+                }
+            }
+        } 
+        scrol();
     </script>
-    <style>
-        .teste{
-            background-color: #000;
-            border: solid ;
-        }
-    </style>
 </body>
 
 </html>

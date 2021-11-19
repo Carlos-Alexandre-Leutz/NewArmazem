@@ -1,7 +1,7 @@
 <div class="wrapper">
 
   <div>
-    <p class="tit">QUER MONTAR SEU <br> ESCRITORIO?<br>
+    <p class="tit">QUER MONTAR SEU <br> ESCRITÓRIO?<br>
       <span class="label">
         VAMOS CONVERSAR!
       </span>
@@ -19,23 +19,22 @@
               <span class="assunto">
                 <input type="text" name="assunto" value="" size="40" class="form-control" id="assunto" aria-required="true" aria-invalid="false" value="Atendimento" placeholder="Assunto" />
               </span>
+           
             </div>
             <div class="form-group">
 
               <span class="nome">
                 <input type="text" name="nome" value="" size="40" class="input-form" id="nome" aria-required="true" aria-invalid="false" placeholder="   Nome Completo" />
               </span>
-            </div>
-            <div class="form-group">
 
               <span class="email">
                 <input type="email" name="email" value="" size="40" class="input-form" id="email" aria-required="true" aria-invalid="false" placeholder="   E-mail" />
               </span>
-            </div>
-            <div class="form-group">
-
               <span class="telefone">
                 <input type="tel" name="telefone" value="" size="40" class="input-form" id="telefone" aria-required="true" aria-invalid="false" placeholder="   Telefone" />
+              </span>
+              <span class="telefone">
+                <input type="tel" name="obcervacao" value="" size="40" class="input-form" id="obcervacao" aria-required="true" aria-invalid="false" placeholder="   Observação" />
               </span>
             </div>
           </div>

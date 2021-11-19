@@ -57,6 +57,16 @@ class HomeController extends Controller
             'newhome'
         );
     }
+    public function empresa(){
+        return view(
+            'empresa'
+        );
+    }
+    public function manutencao(){
+        return view(
+            'manutencao'
+        );
+    }
 
     public function product($code = null)
     {
