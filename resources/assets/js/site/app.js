@@ -356,6 +356,9 @@ var SiteArmazem = {
                         <td class="modal-image-container p-0">
                             <a href="/produto/${product[0]}">
                                 <img src="/images/produtos/marked/${product[1]}" alt="" style="width: 100%">
+                               
+                            </a>
+                            <a href="/manutencao">
                                 <img src="http://armazemdoescritorio.com.br/manutencao/${product[1]}.jpg" alt="" style="width: 100%">
                             </a>
 
@@ -363,13 +366,21 @@ var SiteArmazem = {
                         <td style="vertical-align: middle">
                             <div>
                                 <div class="col-md-6 font-weight-bold mb-2" style="font-size: 14px;"><b>${categoryText}: ${product[0]}</b></div>
-                                <div class="d-flex justify-content-end">
-                                    <input type="number" min="1" id="product-${product[0]}-quantity" value="1" class="form-control modal-input" />
-                                    <a href="#" class="remove-product" data-code="${product[0]}" style="font-size: 15px;"><span class="fas fa-trash"></span></a>
+                                <div class="row">
+                                    <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+                                        <textarea class="form-control" id="product-${product[0]}-message" placeholder="Adicionar observação"></textarea>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 ">
+                                        <div class="d-flex justify-content-end">
+                                            <input type="number" min="1" id="product-${product[0]}-quantity" value="1" class="form-control modal-input" />
+                                            <a href="#" class="remove-product" data-code="${product[0]}" style="font-size: 15px;"><span class="fas fa-trash"></span></a>
+                                        </div>
+                                    </div>
                                 </div>
+                               
                                 <br />
                                 <div>
-                                    <textarea class="form-control" id="product-${product[0]}-message" placeholder="Adicionar observação"></textarea>
+                                   
                                 </div>
                         </td>
                     </tr>

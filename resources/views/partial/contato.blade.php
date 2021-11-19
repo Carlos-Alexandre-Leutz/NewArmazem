@@ -33,9 +33,9 @@
               <span class="telefone">
                 <input type="tel" name="telefone" value="" size="40" class="input-form" id="telefone" aria-required="true" aria-invalid="false" placeholder="   Telefone" />
               </span>
-              <span class="telefone">
+              <!-- <span class="telefone">
                 <input type="tel" name="obcervacao" value="" size="40" class="input-form" id="obcervacao" aria-required="true" aria-invalid="false" placeholder="   Observação" />
-              </span>
+              </span> -->
             </div>
           </div>
 

@@ -7,9 +7,9 @@
     <div class="conteiner-risco-footer"></div>
     <section class="wrapper cont-footer-button">
       <div>
-        <a href="">Fale Conosco</a><br>
-        <a href="">Sobre o Armazém</a><br>
-        <a href="">Trabalhe Conosco</a>
+        <a onclick="openCloseModalTrabalhe()">Fale Conosco</a><br>
+        <a href="{{ url('/empresa') }}">Sobre o Armazém</a><br>
+        <a onclick="openCloseModalTrabalhe()">Trabalhe Conosco</a>
 
       </div>
       <div>
@@ -20,8 +20,8 @@
           <!-- <i class="fab fa-whatsapp"></i> -->
         </a>
         <a href="tel:+4733480291">
-        <i class="fas fa-phone-alt"></i>
-        (47) 3348-0291
+          <i class="fas fa-phone-alt"></i>
+          (47) 3348-0291
         </a>
       </div>
       <div>
@@ -53,6 +53,20 @@
 
       </div>
     </section>
+    <div class="modal" tabindex="-1" id="modaltrabalhe">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+          
+            <button onclick="closeTrabalhe()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            @include('partial.contato')
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
 
     <!--   
@@ -64,3 +78,24 @@
   </div>
 
 </footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const openCloseModalTrabalhe = () => {
+    console.log("openCloseModalTrabalhe")
+
+
+    $('#modaltrabalhe').modal('show');
+
+  }
+  const closeTrabalhe = () => {
+
+
+    $('#modaltrabalhe').modal('hide');
+
+
+
+  }
+</script>
