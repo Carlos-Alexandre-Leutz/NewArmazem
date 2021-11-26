@@ -1988,6 +1988,13 @@ header .products-line-container a {
   color: #353534;
 }
 
+@media only screen and (min-width: 1600px) {
+  .cont-manutecao .cont-manutecao-itens div:nth-child(1) {
+    margin-top: 5px;
+    font-size: 40px !important;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .cont-manutecao {
     color: #ffffff;

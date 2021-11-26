@@ -51,8 +51,8 @@
             @endif
           </p>
 
-
-
+          @include('partial.contato')
+          <!-- 
           <div id="budget-products" class="d-none">
             <div>
               <p class="tit">QUER MONTAR SEU <br> ESCRITORIO?<br>
@@ -86,7 +86,7 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> -->
           <table class="table">
             <tbody id="budgetTable">
               <tr>

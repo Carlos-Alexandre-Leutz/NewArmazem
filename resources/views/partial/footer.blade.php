@@ -7,9 +7,9 @@
     <div class="conteiner-risco-footer"></div>
     <section class="wrapper cont-footer-button">
       <div>
-        <a onclick="openCloseModalTrabalhe()">Fale Conosco</a><br>
+        <a target="blank" href="https://api.whatsapp.com/send?phone=554733480291">Fale Conosco</a><br>
         <a href="{{ url('/empresa') }}">Sobre o Armazém</a><br>
-        <a onclick="openCloseModalTrabalhe()">Trabalhe Conosco</a>
+        <a target="blank" href="https://api.whatsapp.com/send?phone=55554733480291&text=Ol%C3%A1%20tenho%20interesse%20em%20trabalhar%20com%20voc%C3%AAs%20segue%20abaixo%20meu%20curr%C3%ADculo.">Trabalhe Conosco</a>
 
       </div>
       <div>
@@ -25,7 +25,7 @@
         </a>
       </div>
       <div>
-        <a href="https://goo.gl/maps/r9Q2BZQaMVA2" target="_blank" title="Clique para ver no Google Maps">
+        <a href="https://goo.gl/maps/ixTD2doat6bg5a4fA" target="_blank" title="Clique para ver no Google Maps">
           <i class="fas fa-map-marker-alt"></i>
           Balneário Camboriú, SC <br>
           R. Portugal 31, Bairo das Nações <br>
@@ -53,20 +53,7 @@
 
       </div>
     </section>
-    <div class="modal" tabindex="-1" id="modaltrabalhe">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-          
-            <button onclick="closeTrabalhe()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            @include('partial.contato')
-          </div>
-          
-        </div>
-      </div>
-    </div>
+  
 
 
     <!--   

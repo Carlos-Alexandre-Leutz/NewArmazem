@@ -76,10 +76,13 @@
           <img id="img-home" style="max-width: 250px; min-width: 150px;" class="imgHome " src="{{asset('images/botão_produtos.png')}}" alt="Armazém do Escritório">
         </div>
       </div>
+
       <div onclick="contrate()" class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
-        <div class="d-flex justify-content-start">
-          <img id="img-home" style="max-width: 250px; min-width: 100px;" class="imgHome " src="{{asset('images/botão_contrate.png')}}" alt="Armazém do Escritório">
-        </div>
+        <a target="blank" href="https://api.whatsapp.com/send?phone=554733480291">
+          <div class="d-flex justify-content-start">
+            <img id="img-home" style="max-width: 250px; min-width: 100px;" class="imgHome " src="{{asset('images/botão_contrate.png')}}" alt="Armazém do Escritório">
+          </div>
+        </a>
       </div>
     </div>
 
@@ -418,8 +421,8 @@
     }
 
     const contrate = () => {
-      $("#contrate").html(`@include('partial.contato')`);
-      $("#manutencao").addClass("d-none")
+      // $("#contrate").html(`@include('partial.contato')`);
+      // $("#manutencao").addClass("d-none")
     }
     const manutencao = () => {
       $("#contrate").html(``);

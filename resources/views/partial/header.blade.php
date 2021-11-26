@@ -95,9 +95,6 @@
             }
         });
     });
-
-
-
     $('#icone').click(function() {
         if ($('.barra').hasClass('trasformarBarra')) {
             $('.barra').removeClass('trasformarBarra')
@@ -113,18 +110,14 @@
     })
     const orcamentosContados = () => {
         let localStorege = JSON.parse(window.localStorage.getItem("budget"));
-        console.log(localStorege)
+        // console.log(localStorege)
         if (localStorege) {
-            console.log(localStorege.length)
-
-
+            // console.log(localStorege.length)
             if (localStorege.length >= 1) {
                 document.getElementById("voceOrcando").classList.remove("d-none")
                 document.getElementById("quantidade-orcamentos").classList.remove("d-none")
-
                 let quantidadeOrcamentos = document.getElementById("quantidade-orcamentos");
                 quantidadeOrcamentos.innerHTML = localStorege.length;
-
             } else {
                 document.getElementById("voceOrcando").classList.add("d-none")
                 document.getElementById("quantidade-orcamentos").classList.add("d-none")
@@ -138,19 +131,23 @@
     }, 3000);
 
     const scrolHeader = (path) => {
+        console.log("path" , path)
         let url = window.location.pathname;
         if (url == "/") {
-            if (path = "contato") {
+            console.log("/")
+            if (path == "contato") {
+                console.log("contato")
                 window.scrollTo(0, 1800)
             }
-            if (path = "produtos") {
+            else if (path == "produtos") {
+                console.log("produto")
                 window.scrollTo(0, 500)
             }
         } else {
-            if (path = "contato") {
+            if (path == "contato") {
                 window.location.href = "/#contato"
             }
-            if (path = "produtos") {
+            if (path == "produtos") {
                 window.location.href = "/#produtos"
             }
 
