@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <div onclick="contrate()" class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-3">
         <a target="blank" href="https://api.whatsapp.com/send?phone=554733480291">
           <div class="d-flex justify-content-start">
             <img id="img-home" style="max-width: 250px; min-width: 100px;" class="imgHome " src="{{asset('images/botão_contrate.png')}}" alt="Armazém do Escritório">
@@ -93,7 +93,7 @@
       <div id="contrate"></div>
 
       <div id="manutencao" class="cont-categorias  pt-3">
-
+        
 
         <div class="mb-4 ">
           <div class="manutencao ">
@@ -104,8 +104,6 @@
             </div>
           </div>
         </div>
-
-
         <div class="mb-4">
           <div class="manutencao">
             <div onclick="openCloseModal('02')" class="verProdutos">
@@ -115,7 +113,6 @@
             </div>
           </div>
         </div>
-
         <div class="mb-4">
           <div class="manutencao">
             <div onclick="openCloseModal('03')" class="verProdutos">
@@ -333,6 +330,42 @@
             </div>
           </div>
         </div>
+        <div class="mb-4">
+          <div class="manutencao">
+            <div onclick="openCloseModal('27')" class="verProdutos">
+              <div class="image">
+                <img id="img-home" class="imgHome" src="{{asset('images/FOTOS PRODUTOS/27.jpg')}}" alt="Armazém do Escritório">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="manutencao">
+            <div onclick="openCloseModal('28')" class="verProdutos">
+              <div class="image">
+                <img id="img-home" class="imgHome" src="{{asset('images/FOTOS PRODUTOS/28.jpg')}}" alt="Armazém do Escritório">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="manutencao">
+            <div onclick="openCloseModal('29')" class="verProdutos">
+              <div class="image">
+                <img id="img-home" class="imgHome" src="{{asset('images/FOTOS PRODUTOS/29.jpg')}}" alt="Armazém do Escritório">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <div class="manutencao">
+            <div onclick="openCloseModal('30')" class="verProdutos">
+              <div class="image">
+                <img id="img-home" class="imgHome" src="{{asset('images/FOTOS PRODUTOS/30.jpg')}}" alt="Armazém do Escritório">
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -346,7 +379,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title">Manutenção</h5>
           <button onclick="openCloseModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -363,7 +396,7 @@
   </div>
 
   @include('partial.footer')
-  @include('partial.modal-orcamento')
+ 
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -381,6 +414,7 @@
       }
     }
 
+   
     const addOrcamento = (src) => {
       console.log("img", src)
       let budget = JSON.parse(window.localStorage.getItem("budget"));
@@ -420,10 +454,7 @@
       })
     }
 
-    const contrate = () => {
-      // $("#contrate").html(`@include('partial.contato')`);
-      // $("#manutencao").addClass("d-none")
-    }
+   
     const manutencao = () => {
       $("#contrate").html(``);
       $("#manutencao").removeClass("d-none")

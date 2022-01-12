@@ -16,6 +16,9 @@
                         <div>Empresa</div>
                     </a>
 
+                    <a class="linkNavMob text-light" onclick="scrolHeaderMoble('produtos')" title="Contato">
+                        <div style="cursor: pointer;">Produtos</div>
+                    </a>
                     <a class="linkNavMob text-light" onclick="scrolHeaderMoble('contato')" title="Contato">
                         <div style="cursor: pointer;">Contato</div>
                     </a>
@@ -156,14 +159,21 @@
     const scrolHeaderMoble = (path) => {
         let url = window.location.pathname;
         if (url == "/") {
-            if (path = "contato") {
+            if (path == "contato") {
                 window.scrollTo(0, 1000)
+                console.log("contatoasd")
+            }
+            if (path == "produtos") {
+                window.scrollTo(0, 0)
                 console.log("contatoasd")
             }
 
         } else {
-            if (path = "contato") {
+            if (path == "contato") {
                 window.location.href = "/#contato"
+            }
+            if (path == "produtos") {
+                window.location.href = "/#produtos"
             }
 
         }

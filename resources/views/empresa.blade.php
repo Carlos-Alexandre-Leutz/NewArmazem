@@ -81,11 +81,9 @@
     <div class="wrapper">
       <p class="fs-2 text font-weight-700">
 
-        Desde 2011, <br>
-        entregando qualidade<br>
+        Desde 2001, <br>
         <laranja>
-
-          que não tem preço!
+          Qualidade não tem preço!
         </laranja>
       </p>
 
@@ -105,15 +103,21 @@
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group">
           <p class="text-justify colorText">
-            A empresa surgiu a partir de uma oportunidade de negócio no ano de 2001 com a ideia inicial de apenas um showroom de fábrica com aproximadamente 200m², administrado pelo representante e atual gestor, sem comercialização direta.
+            <!-- A empresa surgiu a partir de uma oportunidade de negócio no ano de 2001 com a ideia inicial de apenas um showroom de fábrica com aproximadamente 200m², administrado pelo representante e atual gestor, sem comercialização direta. -->
+            A empresa surgiu à partir de uma oportunidade de negócio no ano de 2001. A ideia inicial era de apenas um showroom de fábrica com aproximadamente 200m², administrado pelo representante e atual gestor, sem comercialização direta.
+            <br>
+            Um ambiente diferenciado onde os clientes poderiam conhecer 
           </p>
         </div>
       </div>
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group">
           <p class="text-justify colorText">
-            Um espaço onde lojistas poderiam conhecer os móveis e cadeiras a serem revendidos pelas lojas, mas o negócio tomou outros rumos quando se aliou a experiência do
-            gestor em mais de 30 anos de representação com a necessidade do mercado.
+            <!-- Um espaço onde lojistas poderiam conhecer os móveis e cadeiras a serem revendidos pelas lojas, mas o negócio tomou outros rumos quando se aliou a experiência do
+            gestor em mais de 30 anos de representação com a necessidade do mercado. -->
+            os móveis e cadeiras a serem revendidos para consumidor final e para empresas.
+            <br>
+            Aliado à experiência do gestor em mais de 30 anos de representação em móveis e a necessidade de atender o mercado como um todo, foram necessárias mudanças.
           </p>
         </div>
       </div>
@@ -125,14 +129,18 @@
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group">
           <p class="text-justify colorText">
-            Os anos se passaram e as mudanças foram necessárias. Com o avanço da cidade, foi preciso ampliar o portfólio de produtos, surgindo o Armazém do Escritório em meados de 2011. Hoje a empresa conta com aproximadamente 1.000m² de showroom com depósito próprio, oferecendo linhas completas de móveis para escritório desde a recepção até produtos com certificação nos padrões técnicos de ergonomia.
-
+            <!-- Os anos se passaram e as mudanças foram necessárias. Com o avanço da cidade, foi preciso ampliar o portfólio de produtos, surgindo o Armazém do Escritório em meados de 2011. Hoje a empresa conta com aproximadamente 1.000m² de showroom com depósito próprio, oferecendo linhas completas de móveis para escritório desde a recepção até produtos com certificação nos padrões técnicos de ergonomia. -->
+            Com a evolução da cidade e do mercado moveleiro, foi preciso ampliar o portfólio de produtos e expandir a loja. Hoje a empresa conta com aproximadamente 1.000m² de showroom com depósito próprio, oferecendo linhas completas de móveis para escritório, móveis corporativos, planejados e sob medida. 
 
           </p>
         </div>
       </div>
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group">
+          <span class="colorText"> 
+
+            Desde a linha decorativa até produtos com certificação nos padrões técnicos de ergonomia.
+          </span>
           <p class="fs-2 line-height">
 
             <laranja>
@@ -142,8 +150,8 @@
               </span>
               <br>
               <span class="font-weight-700 ">
-
-                pelo <br>
+              pelo
+                <!-- <br> -->
                 conforto e <br>
                 bem-estar
               </span>
@@ -163,9 +171,14 @@
         <div class="form-group">
           <p class="text-justify colorText">
             Somos a maior loja de Itajaí e uma das maiores lojas de móveis para escritório do estado de Santa Catarina. <br>
-            Além de produtos com qualidade e procedência, contamos com serviços de manutenção para cadeiras e móveis em geral, oferecemos produtos com exclusividade.
-            Atuando em todo território catarinense com vendas, em 2020 abrimos a primeira filial, na cidade de Balneário Camboriú, uma loja versátil para melhor atender os clientes da região.
+            <!-- Além de produtos com qualidade e procedência, contamos com serviços de manutenção para cadeiras e móveis em geral, oferecemos produtos com exclusividade.
+            Atuando em todo território catarinense com vendas, em 2020 abrimos a primeira filial, na cidade de Balneário Camboriú, uma loja versátil para melhor atender os clientes da região. -->
 
+
+            Além de produtos com qualidade e procedência, contamos com serviços de manutenção para cadeiras e móveis em geral.
+            Oferecemos produtos com exclusividade, moderno e garantia assegurada.
+            <br>
+            Atuando em todo território catarinense e nacional com vendas direta, em 2020 abrimos a primeira filial na cidade de Balneário Camboriú, uma loja versátil para melhor atender os clientes da região.
 
           </p>
         </div>
@@ -173,9 +186,12 @@
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group">
           <p class="text-justify colorText">
-            Um espaço onde lojistas poderiam conhecer os móveis e cadeiras a serem revendidos pelas lojas, mas o negócio tomou outros rumos quando se aliou a experiência do
+            <!-- Um espaço onde lojistas poderiam conhecer os móveis e cadeiras a serem revendidos pelas lojas, mas o negócio tomou outros rumos quando se aliou a experiência do
 
-            gestor em mais de 30 anos de representação com a necessidade do mercado.
+            gestor em mais de 30 anos de representação com a necessidade do mercado. -->
+
+            São 20 anos de história e tradição, seguindo a missão de entregar uma experiência única ao consumidor final, com os melhores serviços e produtos do mercado.
+
 
 
           </p>
@@ -189,8 +205,8 @@
               <br>
               <span class="font-weight-700">
 
-                toda Santa <br>
-                Catarina.
+                todo<br>
+                Brasil.
               </span>
             </laranja>
           </p>

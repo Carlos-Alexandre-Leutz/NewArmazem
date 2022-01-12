@@ -160,7 +160,14 @@
                 <div class="sobre-armasem">
                     <h1 id="targetEmpresa">O ARMAZÉM</h1>
                     <p>
-                        A empresa surgiu a partir de uma oportunidade de negócio no ano de 2001 com a ideia inicial de apenas um showroom de fábrica com aproximadamente 200m², administrado pelo representante e atual gestor, sem comercialização direta.
+                        <!-- A empresa surgiu a partir de uma oportunidade de negócio no ano de 2001 com a ideia inicial de apenas um showroom de fábrica com aproximadamente 200m², administrado pelo representante e atual gestor, sem comercialização direta. -->
+                        <!-- O Armazém do Escritório é uma empresa familiar com mais de 20 anos no mercado, atua com vendas e manutenção de mobiliário para escritórios, componentes e artigos de decoração para ambientes de trabalho, ampla linha de móveis para escritórios desde a recepção até a decoração. -->
+                        O Armazém do Escritório é uma empresa familiar fundada em 2001. Com lojas físicas em Itajaí e Balneário Camboriú, atuamos com vendas e manutenção de mobiliário para escritório, componentes e artigos de decoração.
+                        Em nosso showroom, você pode conferir uma ampla linha de móveis corporativos, planejados e sob medida.
+                        Vamos projetar o seu ambiente?
+                        <!-- Nosso showroom com mais de 700 m², possui uma grande cartela de marcas, modelos e cores entre cadeiras e conjuntos de ambientes completos para apreciação e venda.
+                        Contamos com um depósito de 350 m² para armazenagem de pedidos e produtos para distribuição além de alguns produtos a pronta entrega, facilitando ainda mais a montagem dos ambientes.
+                        Somos uma empresa completa e sua necessidade está no nosso estoque! -->
 
                     </p>
                     <a href="{{ url('/empresa') }}">
@@ -235,17 +242,30 @@
             let urlID = document.location.href;
             let split = urlID.split("#")[1]
             if (split) {
-                console.log("split")
-                if (split == "contato") {
-                    window.scrollTo(0, 1800)
-                    $(".header-transparent").addClass("header-black");
+                if (screen.width <= 500) {
+                    console.log("split", screen.width)
+                    if (split == "contato") {
+                        window.scrollTo(0, 1000)
+                        $(".header-transparent").addClass("header-black");
 
-                } else if (split == "produtos") {
-                    window.scrollTo(0, 500)
-                    $(".header-transparent").addClass("header-black");
+                    } else if (split == "produtos") {
+                        window.scrollTo(0, 0)
+                        $(".header-transparent").addClass("header-black");
+                    }
+
+                } else {
+
+                    if (split == "contato") {
+                        window.scrollTo(0, 1800)
+                        $(".header-transparent").addClass("header-black");
+
+                    } else if (split == "produtos") {
+                        window.scrollTo(0, 500)
+                        $(".header-transparent").addClass("header-black");
+                    }
                 }
             }
-        } 
+        }
         scrol();
     </script>
 </body>

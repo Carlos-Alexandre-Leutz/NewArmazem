@@ -1,5 +1,5 @@
 <img id="img-home" class="imgHome" src="{{asset('images/Banner Home (1).png')}}" alt="Armazém do Escritório">
-<img id="img-categorias" class="imgHome" src="{{asset('images/Banner_topo.png')}}" alt="Armazém do Escritório">
+<img id="img-categorias" class="imgHome" src="{{asset('images/banner_v4.jpg')}}" alt="Armazém do Escritório">
 
 
 <script>
